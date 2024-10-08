@@ -69,9 +69,9 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-top10/7序列化" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-top10/6ssti" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2024/10/08/top10/7%E5%BA%8F%E5%88%97%E5%8C%96/" class="article-date">
+    <a href="/2024/10/08/top10/6ssti/" class="article-date">
   <time class="dt-published" datetime="2024-10-08T02:40:41.315Z" itemprop="datePublished">2024-10-08</time>
 </a>
     
@@ -81,23 +81,35 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h1><h3 id="a-unserialize-serialize-‘system-‘ls’-’-这样的话ls会执行吗"><a href="#a-unserialize-serialize-‘system-‘ls’-’-这样的话ls会执行吗" class="headerlink" title="$a&#x3D;unserialize(serialize(‘system(‘ls’)’)),这样的话ls会执行吗"></a>$a&#x3D;unserialize(serialize(‘system(‘ls’)’)),这样的话ls会执行吗</h3><pre><code>●	serialize函数只是对字符串值&#39;system(\&#39;ls\&#39;)&#39;进行序列化，它并不知道这个字符串里面包含的是可执行的命令相关内容。unserialize也仅仅是将序列化后的字符串再还原回原来的字符串。
-
-●	在 PHP 中，一个字符串并不会自动被识别并执行其中可能包含的命令。要执行系统命令，必须明确地调用执行系统命令的函数（如system、exec、shell_exec等）。
-
-2.	执行机制的不同
-
-●	当你直接写$a = system(&#39;ls&#39;);时，PHP 会识别system是一个执行系统命令的函数，并尝试执行括号内的ls命令。
-
-●	而在$a = unserialize(serialize(&#39;system(\&#39;ls\&#39;)&#39;));中，整个过程只是对字符串的序列化和反序列化操作，不会触发系统命令的执行机制。
-</code></pre>
-<p>所以，在执行完$a &#x3D; unserialize(serialize(‘system(&#39;ls&#39;)’));后，$a的值为system(‘ls’)（这是一个字符串），而不是执行system(‘ls’)这个命令后的结果。</p>
-<h3 id="unserialize之后的内容全是字符串吗"><a href="#unserialize之后的内容全是字符串吗" class="headerlink" title="unserialize之后的内容全是字符串吗"></a>unserialize之后的内容全是字符串吗</h3><p>数组，对象，字符串各回各家</p>
+        <h1 id="ssti"><a href="#ssti" class="headerlink" title="ssti"></a>ssti</h1><p>server-side tample intruder服务器端模板注入</p>
+<p>发生在使用服务器模板引擎的web应用中，接受输入，直接传到模板引擎中解析，如果没有对输入过滤，注入模板代码，导致敏感信息泄露，远程执行命令</p>
+<p>与sql类似，都是接受用户输入，并将其作为模板内容的一部分，在&#x3D;&#x3D;渲染过程中执行了用户的恶意内容&#x3D;&#x3D;</p>
+<h1 id="服务器模板"><a href="#服务器模板" class="headerlink" title="服务器模板"></a>服务器模板</h1><p>一个用于&#x3D;&#x3D;web开发&#x3D;&#x3D;的&#x3D;&#x3D;技术&#x3D;&#x3D;，允许将应用程序的&#x3D;&#x3D;业务逻辑&#x3D;&#x3D;，和&#x3D;&#x3D;用&#x3D;&#x3D;&#x3D;&#x3D;户界面&#x3D;&#x3D;分离</p>
+<p>可以创建一个&#x3D;&#x3D;静态框架&#x3D;&#x3D;，定义一些变量，占位符，页面请求时会&#x3D;&#x3D;被动态数据替换&#x3D;&#x3D;</p>
+<h4 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h4><ol>
+<li><strong>定义模板</strong>：创建一个包含特定标记或指令的&#x3D;&#x3D;HTML文件&#x3D;&#x3D;，这些标记指示模板引擎在&#x3D;&#x3D;哪些位置插入动态数据。&#x3D;&#x3D;</li>
+<li><strong>传递数据</strong>：当用户&#x3D;&#x3D;请求&#x3D;&#x3D;后端处理业务，收集需要显示在页面上的数据。</li>
+<li><strong>渲染模板</strong>：数据来&#x3D;&#x3D;替换&#x3D;&#x3D;模板中的占位符或变量，这个过程称为&#x3D;&#x3D;渲染&#x3D;&#x3D;。</li>
+<li><strong>输出生成</strong>：&#x3D;&#x3D;生成最终的HTML页面&#x3D;&#x3D;</li>
+</ol>
+<h1 id="模板引擎"><a href="#模板引擎" class="headerlink" title="模板引擎"></a>模板引擎</h1><h4 id="作用："><a href="#作用：" class="headerlink" title="作用："></a>作用：</h4><p>动态数据和静态模板&#x3D;&#x3D;结合&#x3D;&#x3D;，生成最终的输出</p>
+<h4 id="常见的模板引擎"><a href="#常见的模板引擎" class="headerlink" title="常见的模板引擎"></a>常见的模板引擎</h4><p>Pzrty、Twig、Blade，</p>
+<p>Python的Jinja2、Django模板语言，</p>
+<p>Java的JSP、FreeMarker、Velocity</p>
+<p>都有自己的语法和特性，但它们都有可能受到SSTI攻击。</p>
+<h1 id="识别和利用"><a href="#识别和利用" class="headerlink" title="识别和利用"></a>识别和利用</h1><p>攻击者通常会&#x3D;&#x3D;尝试注入各种模板表达式&#x3D;&#x3D;，如<code>$&#123;&#123;7*7&#125;&#125;</code>或<code>&#123;&#123;config&#125;&#125;</code>，来检测页面是否&#x3D;&#x3D;返回预期&#x3D;&#x3D;的结果。如果能够成功执行这些表达式，就表明存在SSTI漏洞</p>
+<p>&#x3D;&#x3D;编码&#x3D;&#x3D;、&#x3D;&#x3D;绕过过滤器&#x3D;&#x3D;、利用模板引擎的&#x3D;&#x3D;特定功能&#x3D;&#x3D;</p>
+<h1 id="预防措施"><a href="#预防措施" class="headerlink" title="预防措施"></a>预防措施</h1><p>对用户输入进行严格的&#x3D;&#x3D;过滤&#x3D;&#x3D;</p>
+<p>使用“&#x3D;&#x3D;无逻辑&#x3D;&#x3D;”模板引擎（如Mustache）</p>
+<p>以及在&#x3D;&#x3D;沙盒&#x3D;&#x3D;环境中执行用户的代码</p>
+<p>发者应该&#x3D;&#x3D;避免&#x3D;&#x3D;在模板中直接使用&#x3D;&#x3D;用户输入&#x3D;&#x3D;</p>
+<p>而是应该使用&#x3D;&#x3D;安全的API和库&#x3D;&#x3D;来处理数据。</p>
+<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><p>服务器端模板引擎，渲染模板时，自动转义输出数据，提供了xss防护</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/08/top10/7%E5%BA%8F%E5%88%97%E5%8C%96/" data-id="cm1zupb1n000gqcasddbr616o" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/10/08/top10/6ssti/" data-id="cm1zvswq0000jrkaseh3l5ucp" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -167,7 +179,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/08/top10/5xxe/" data-id="cm1zupb1n000eqcas6ze45xje" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/10/08/top10/5xxe/" data-id="cm1zvswpz000erkas0tul975z" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -242,7 +254,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/08/top10/4ssrf/" data-id="cm1zupb1m000dqcashau395io" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/10/08/top10/4ssrf/" data-id="cm1zvswpy000drkasdcvy50rs" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -296,7 +308,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/08/top10/3csrf/" data-id="cm1zupb1m000cqcas3v5d30gp" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/10/08/top10/3csrf/" data-id="cm1zvswpy000crkasats0fizp" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -332,7 +344,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/08/top10/1%E6%BC%8F%E6%B4%9E%E6%8C%96%E6%8E%98/" data-id="cm1zupb1l000aqcas3ln0dbg2" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/10/08/top10/1%E6%BC%8F%E6%B4%9E%E6%8C%96%E6%8E%98/" data-id="cm1zvswpx000arkas1bjs4jyf" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -463,7 +475,7 @@ allow_url_include=on
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/08/top10/2%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/" data-id="cm1zupb1m000bqcasdyvj1jq2" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/10/08/top10/2%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/" data-id="cm1zvswpy000brkasax5p4gnj" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -630,7 +642,7 @@ allow_url_include=on
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/08/top10/15%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" data-id="cm1zupb1l0009qcas7l8f2fqz" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/10/08/top10/15%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" data-id="cm1zvswpx0008rkas3i043kem" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -709,7 +721,7 @@ allow_url_include=on
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/08/top10/14xss/" data-id="cm1zupb1l0008qcas5rr1h9bw" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/10/08/top10/14xss/" data-id="cm1zvswpx0009rkas7cr4dsgc" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -737,7 +749,7 @@ allow_url_include=on
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/08/top10/13bom/" data-id="cm1zupb1k0007qcas091rbfkf" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/10/08/top10/13bom/" data-id="cm1zvswpw0007rkas4umngaef" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -777,7 +789,7 @@ allow_url_include=on
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/08/top10/12dom/" data-id="cm1zupb1k0005qcas03kj7ubm" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/10/08/top10/12dom/" data-id="cm1zvswpt0004rkas4yn77g8s" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
