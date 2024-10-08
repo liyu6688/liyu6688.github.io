@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="xsscross-site scripting.跨站脚本攻击， 通过网站注入点，注入客户端可执行的payload（脚本代码 危害获取用户信息，浏览器，IP，cookie等 钓鱼，欺骗用户登录过期，骗取账号密码，自己先输入一个，跳转到你输入的页面，发给受害者 注入木马，广告链接 后台删改数据，配合ssrf xss蠕虫，看过帖子就关注 分类反射型xss钓鱼，引流，配合其他漏洞如csrf等 仅执行一次，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/10/08/top10/14xss/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="xsscross-site scripting.跨站脚本攻击， 通过网站注入点，注入客户端可执行的payload（脚本代码 危害获取用户信息，浏览器，IP，cookie等 钓鱼，欺骗用户登录过期，骗取账号密码，自己先输入一个，跳转到你输入的页面，发给受害者 注入木马，广告链接 后台删改数据，配合ssrf xss蠕虫，看过帖子就关注 分类反射型xss钓鱼，引流，配合其他漏洞如csrf等 仅执行一次，">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-10-08T02:40:41.309Z">
+<meta property="article:modified_time" content="2024-09-25T05:10:17.733Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-top10/14xss" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/10/08/top10/14xss/" class="article-date">
+  <time class="dt-published" datetime="2024-10-08T02:40:41.309Z" itemprop="datePublished">2024-10-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="xss"><a href="#xss" class="headerlink" title="xss"></a>xss</h1><p>cross-site scripting.跨站脚本攻击，</p>
+<p>通过网站注入点，注入客户端可执行的payload（脚本代码</p>
+<h1 id="危害"><a href="#危害" class="headerlink" title="危害"></a>危害</h1><p>获取用户信息，浏览器，IP，cookie等</p>
+<p>钓鱼，欺骗用户登录过期，骗取账号密码，自己先输入一个，跳转到你输入的页面，发给受害者</p>
+<p>注入木马，广告链接</p>
+<p>后台删改数据，配合ssrf</p>
+<p>xss蠕虫，看过帖子就关注</p>
+<h1 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h1><h3 id="反射型xss"><a href="#反射型xss" class="headerlink" title="反射型xss"></a>反射型xss</h3><p>钓鱼，引流，配合其他漏洞如csrf等</p>
+<p>仅执行一次，参数型跨站脚本</p>
+<p>主要是将攻击脚本放到url中</p>
+<h5 id="利用场景"><a href="#利用场景" class="headerlink" title="利用场景"></a>利用场景</h5><p>见框就插，改url参数，</p>
+<h5 id="payload"><a href="#payload" class="headerlink" title="payload"></a>payload</h5><ul>
+<li><p>经典测试</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span>alert(‘hacke’)<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">//防范</span><br><span class="line">php中get或者post之后</span><br><span class="line">$name=str_replace(&#x27;<span class="tag">&lt;<span class="name">script</span>&gt;</span>&#x27;,&quot;&quot;,$name)//str_replace替换函数，区分大小写，但后边两个都能绕过</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>大写绕过</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">SCRIPT</span>&gt;</span><span class="language-javascript"><span class="title function_">alert</span>(<span class="string">&#x27;hacker&#x27;</span>)</span><span class="tag">&lt;/<span class="name">SCRIPT</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>双写绕过</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;scr<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript">ipt&gt;<span class="title function_">alert</span>(<span class="string">&#x27;hacker&#x27;</span>)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">//防范</span><br><span class="line">$name=str_replace(&#x27;/&lt;(.*)s(.*)c(.*)r(.*)i(.*)p(.*)t/i&#x27;,&#x27;&#x27;,$name)//i是忽略大小写</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>其他标签</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">1</span> <span class="attr">onerror</span>=<span class="string">alert(</span>&#x27;<span class="attr">hacker</span>&#x27;)/&gt;</span></span><br><span class="line">传一个图片链接，路径为1，他是找不到的，故报错，令报错=弹窗</span><br><span class="line">//防御</span><br><span class="line">$name=htmlspecialchars($name);把预定义的字符<span class="tag">&lt;&gt;</span>&amp;、转化为html实体，防止浏览器将他作为html元素</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>搜索框的一个例子<br>往搜索框里面输入东西，源代码显示value&#x3D;“mann”onclick&#x3D;prompt(1)””&#x2F;&#x2F;两个分号前面闭合前面后面闭合后面<br>prompt是与用户交互对话框，1是它提示信息</p>
+</li>
+<li><p>直接闭合标签”&gt;&lt;”img src&#x3D;“123” onerror&#x3D;eval()</p>
+</li>
+</ul>
+<h3 id="存储型xss"><a href="#存储型xss" class="headerlink" title="存储型xss"></a>存储型xss</h3><p>攻击范围广，流量传播的，可配合其他漏洞</p>
+<p>持久型</p>
+<p>将恶意脚本存储于数据库中，用户访问包含恶意相关数据的页面</p>
+<p>多数存在评论，个人信息等地，因为这些才需要数据库的存在</p>
+<p>防御</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$name=strip_tags(addslashes($name));//加上反斜杠和去除里面的php html xml标签，是去掉一整个从《到&gt;</span><br><span class="line">或者</span><br><span class="line">$name=htmlspecialchars($name)搞成html实体</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="dom型xss"><a href="#dom型xss" class="headerlink" title="dom型xss"></a>dom型xss</h3><p>配合，长度大小不受限制，通过js操作document，实现dom树的重构</p>
+<p>主要存在用户能修改页面的dom，造成客户端payload在浏览器中执行</p>
+<p>全是前端，客户端，跟后端毫无关系</p>
+<h1 id="绕过和防御"><a href="#绕过和防御" class="headerlink" title="绕过和防御"></a>绕过和防御</h1><ul>
+<li><p>&lt;&gt;被过滤</p>
+<p>比如你的输入在标签里面，比如input，就会在value里面，可以闭合前面的双引号“autofocus onfocus&#x3D;alert(1)&#x2F;&#x2F;就是启动就会自动聚焦到这个命令这里</p>
+</li>
+<li><p>alert被过滤</p>
+<p>prompt、confire也会进行一个弹窗<br>&lt;a href&#x3D;data:text&#x2F;html;base64,弹窗命令的base64编码，firefox可以chrome不行</p>
+</li>
+<li><p>on被过滤</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/10/08/top10/14xss/" data-id="cm1zupb1l0008qcas5rr1h9bw" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/10/08/top10/15%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/10/08/top10/13bom/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%88%91%E6%9C%8D%E4%BA%86%EF%BC%8C%E5%88%B0%E5%BA%95%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B2%A1%E6%9C%89css/" rel="tag">我服了，到底为什么没有css</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E6%88%91%E6%9C%8D%E4%BA%86%EF%BC%8C%E5%88%B0%E5%BA%95%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B2%A1%E6%9C%89css/" style="font-size: 10px;">我服了，到底为什么没有css</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/10/08/top10/%E6%88%91%E9%82%A3%E6%87%B5%E9%80%BC%E7%9A%84%E9%97%AE%E9%A2%98%E4%BB%AC/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/08/top10/%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/08/top10/SQL/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/08/top10/md5%E7%BB%95%E8%BF%87/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/08/top10/shctf/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

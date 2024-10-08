@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="rceremote code execution远程代码执行在服务器上执行代码 攻击类型&#x3D;&#x3D;命令&#x3D;&#x3D;注入commmand injection &#x3D;&#x3D;系统命令&#x3D;&#x3D;执行函数 system()passthru()exec()shell_exec()popen()proc_open()pcntl_exec()  system（‘">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/10/08/top10/8rce/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="rceremote code execution远程代码执行在服务器上执行代码 攻击类型&#x3D;&#x3D;命令&#x3D;&#x3D;注入commmand injection &#x3D;&#x3D;系统命令&#x3D;&#x3D;执行函数 system()passthru()exec()shell_exec()popen()proc_open()pcntl_exec()  system（‘">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-10-08T02:40:41.317Z">
+<meta property="article:modified_time" content="2024-09-21T18:49:37.627Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-top10/8rce" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/10/08/top10/8rce/" class="article-date">
+  <time class="dt-published" datetime="2024-10-08T02:40:41.317Z" itemprop="datePublished">2024-10-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="rce"><a href="#rce" class="headerlink" title="rce"></a>rce</h1><p>remote code execution远程代码执行<br>在服务器上执行代码</p>
+<h1 id="攻击类型"><a href="#攻击类型" class="headerlink" title="攻击类型"></a>攻击类型</h1><h3 id="命令-注入commmand-injection"><a href="#命令-注入commmand-injection" class="headerlink" title="&#x3D;&#x3D;命令&#x3D;&#x3D;注入commmand injection"></a>&#x3D;&#x3D;命令&#x3D;&#x3D;注入commmand injection</h3><ul>
+<li><h4 id="系统命令-执行函数"><a href="#系统命令-执行函数" class="headerlink" title="&#x3D;&#x3D;系统命令&#x3D;&#x3D;执行函数"></a>&#x3D;&#x3D;系统命令&#x3D;&#x3D;执行函数</h4></li>
+<li><p>system()<br>passthru()<br>exec()<br>shell_exec()<br>popen()<br>proc_open()<br>pcntl_exec()</p>
+</li>
+<li><p>system（‘ls’）执行系统命令，有&#x3D;&#x3D;回显&#x3D;&#x3D;，输出&#x3D;&#x3D;最后一行&#x3D;&#x3D;ls后的结果是直接输出，&#x3D;&#x3D;返回值是状态码&#x3D;&#x3D;，如果将返回值赋给一个变量，echo之后是状态码</p>
+</li>
+<li><p>passthru（）回显，全部输出给浏览器，<del>通常用于输出二进制数据命令，如音频视频流</del></p>
+<p><code>passthru(&#39;echo exec(&#39;ls&#39;)&#39;)</code> 不会执行 <code>ls</code> 命令。这里的 <code>exec</code> 函数被包含在单引号中，所以它被视为普通字符串的一部分，而不是一个函数调用。细品，虽然是括号一点一点来</p>
+</li>
+<li><p>exec（）返回值，返回最后一行，exec（‘ls-a’,$a）&#x2F;exec($a,$b)</p>
+<p>exec(木马)，在蚁剑或者cmd&#x3D;system（‘ls’）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">// 初始化一个数组来存储输出</span><br><span class="line">$数组变量= array();</span><br><span class="line"></span><br><span class="line">// 执行命令并捕获输出</span><br><span class="line">exec(&#x27;ls -l&#x27;, $数组, $returnVar);</span><br><span class="line"></span><br><span class="line">// 检查命令是否成功执行</span><br><span class="line">if ($returnVar == 0) &#123;</span><br><span class="line">    // 命令成功执行，输出结果</span><br><span class="line">    echo &quot;命令执行成功，输出如下：&quot; . PHP_EOL;//换行符，防止不兼容</span><br><span class="line">    foreach ($数组名 as $line) &#123;//foreach是遍历数组</span><br><span class="line">        echo $line . PHP_EOL;//这是想输出all，只输出最后一行的话直接输出就行</span><br><span class="line">    &#125;</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    // 命令执行失败，处理错误</span><br><span class="line">    echo &quot;命令执行失败，返回状态码：&quot; . $returnVar;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>shell_exec(‘ls-la’)（这个是PHP的函数）&#x3D;&#x3D;返回值&#x3D;&#x3D;，&#x3D;&#x3D;返回值是字符串&#x3D;&#x3D;，回想一下，返回值不输出，要手动echo，</p>
+</li>
+<li><p>popen（）执行一个命令，然后返回指针，可以用标准的文件函数（如 <code>fgets()</code> 和 <code>fwrite()</code>）来读取或发送数据。&#x3D;&#x3D;（细品，返回值要赋给一个变量，这个变量就是这个返回值了，指针也好，布尔也好）&#x3D;&#x3D;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">// 执行 &#x27;ls&#x27; 命令并获取文件指针</span><br><span class="line">$handle = popen(&#x27;ls&#x27;, &#x27;r&#x27;);</span><br><span class="line">//popen() 以只读模式打开 ls 命令的输出</span><br><span class="line">// 读取输出</span><br><span class="line">while (!feof($handle)) &#123;//fefo（指针），指针在文件末尾就会返回true</span><br><span class="line">    echo fgets($handle) . PHP_EOL;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 关闭文件指针</span><br><span class="line">pclose($handle);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="代码-注入code-injection"><a href="#代码-注入code-injection" class="headerlink" title="&#x3D;&#x3D;代码&#x3D;&#x3D;注入code injection"></a>&#x3D;&#x3D;代码&#x3D;&#x3D;注入code injection</h3><ul>
+<li><p>eval</p>
+</li>
+<li><p>assert</p>
+</li>
+<li><p>creat_function</p>
+</li>
+<li><p>call_user_func</p>
+</li>
+<li><p>preg_replace</p>
+</li>
+<li><p>array_map</p>
+</li>
+<li><p>array_filter</p>
+</li>
+<li><p>echo的双引号</p>
+</li>
+<li></li>
+<li><p>eval（‘echo $a；’）（注&#x3D;&#x3D;意里面有分号）&#x3D;&#x3D;（这是个PHP函数）括号里执行的是&#x3D;&#x3D;PHP命令&#x3D;&#x3D;,一句话木马啥的都行</p>
+</li>
+<li><p>assert不需要分号，一句话木马啥的都行&lt;?php @eval($_POST[‘CMD’])不要加分号？&gt;</p>
+</li>
+<li><p>preg_replace(“&#x2F;test&#x2F;e”,$_POST[‘’‘CMD’],”JUST TEST”)在just test里面寻找test把他替换成cmd，然后当作php命令来执行</p>
+</li>
+<li><p>array_filter($array,$func)&#x2F;&#x2F;前面数组&#x3D;&#x3D;参数，&#x3D;&#x3D;后边&#x3D;&#x3D;函数&#x3D;&#x3D;，</p>
+</li>
+<li><p>array_map（‘函数’，‘数组’）</p>
+<p>这里有一个简单的 PHP 示例，演示了如何使用 <code>array_map</code>：</p>
+<p>php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">解释<span class="function"><span class="keyword">function</span> <span class="title">square</span>(<span class="params"><span class="variable">$x</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$x</span> * <span class="variable">$x</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$numbers</span> = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="variable">$squaredNumbers</span> = <span class="title function_ invoke__">array_map</span>(<span class="string">&#x27;square&#x27;</span>, <span class="variable">$numbers</span>);</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="variable">$squaredNumbers</span>);</span><br></pre></td></tr></table></figure>
+
+<p>输出将是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">解释Array</span><br><span class="line">(</span><br><span class="line">    [0] =&gt; 1</span><br><span class="line">    [1] =&gt; 4</span><br><span class="line">    [2] =&gt; 9</span><br><span class="line">    [3] =&gt; 16</span><br><span class="line">    [4] =&gt; 25</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>square</code> 函数被用作回调函数，它将每个元素的值平方，然后 <code>array_map</code> 将这个函数应用于 <code>$numbers</code> 数组中的每个元素。</p>
+</li>
+<li><p>creat_function(‘’,’$a)&#x2F;&#x2F;前面作为参数传递给后边函数</p>
+</li>
+<li><pre><code class="php">$add = create_function(&#39;$a,$b&#39;, &#39;return $a + $b;&#39;);
+
+echo $add(5, 3); // 输出 8
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">+ call_user_func(“assert”,$_POST[‘CMD’]);前面函数后面参数</span><br><span class="line"></span><br><span class="line">+ 双引号</span><br><span class="line">  如果是双引号，解释器会把变量内容解析出来</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+echo “phpinfo()”//不会执行
+echo &quot;$a&quot;//$a=phpinfo()/会执行
+echo &#39;$a&#39;//单引号不执行
+</code></pre>
+</li>
+</ul>
+<h3 id="不可靠的反序列化"><a href="#不可靠的反序列化" class="headerlink" title="不可靠的反序列化"></a>不可靠的反序列化</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/10/08/top10/8rce/" data-id="cm1zupb1o000hqcasdz26fmu1" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/10/08/top10/basectf/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/10/08/top10/9sql%E6%B3%A8%E5%85%A5/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%88%91%E6%9C%8D%E4%BA%86%EF%BC%8C%E5%88%B0%E5%BA%95%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B2%A1%E6%9C%89css/" rel="tag">我服了，到底为什么没有css</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E6%88%91%E6%9C%8D%E4%BA%86%EF%BC%8C%E5%88%B0%E5%BA%95%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B2%A1%E6%9C%89css/" style="font-size: 10px;">我服了，到底为什么没有css</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/10/08/top10/%E6%88%91%E9%82%A3%E6%87%B5%E9%80%BC%E7%9A%84%E9%97%AE%E9%A2%98%E4%BB%AC/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/08/top10/%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/08/top10/SQL/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/08/top10/md5%E7%BB%95%E8%BF%87/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/08/top10/shctf/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
